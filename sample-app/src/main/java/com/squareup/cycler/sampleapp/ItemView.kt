@@ -55,6 +55,10 @@ class ItemView(
       )
     }
   }
+
+  fun dispText(txt: String) {
+    name.text = txt
+  }
 }
 
 fun Float.format() = "%.2f".format(this)

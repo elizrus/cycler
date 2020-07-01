@@ -9,11 +9,14 @@ import android.widget.CheckBox
 import android.widget.LinearLayout
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.coroutines.InternalCoroutinesApi
 
 class RecyclerActivity: AppCompatActivity(R.layout.main_activity), OnItemSelectedListener {
 
-  private val pages = arrayOf(SimplePage, MutationsPage())
+  @InternalCoroutinesApi
+  private val pages = arrayOf(PagedDataSourcePage(this, lifecycleScope), SimplePage, MutationsPage())
 
   override fun onNothingSelected(parent: AdapterView<*>?) = Unit
 
